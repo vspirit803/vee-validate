@@ -1,28 +1,28 @@
 ---
-title: Handling Forms
-description: Handling form state and submissions
+title: 处理表单
+description: 处理表单状态和提交
 order: 3
 ---
 
-# Handling Forms
+# 处理表单
 
-vee-validate offers many helpers to handle form submissions, resets and DX to make your forms much easier to reason about and less of a burden to maintain. The `Form` component handles the following form cases:
+vee-validate 提供了许多助手来处理表单提交、重置和DX，从而使你的表单更易于推理，并且减轻了维护负担。`Form` 组件处理以下表单案例：
 
 <div class="features">
 
-- Submitting forms with JavaScript listeners (AJAX)
-- Submitting forms using the classic/native approach (page reload)
-- Handling form resets
+- 使用 JavaScript 侦听器 (AJAX) 提交表单
+- 使用经典/本地方法提交表单（页面重新加载）
+- 处理表格重置
 
 </div>
 
-## Form Values
+## 表单值
 
-So far you probably noticed we didn't use `v-model` once in the examples. This is because in most cases you don't actually need the model values until you submit them to your API or not at all if you are submitting an HTML form without JavaScript.
+到目前为止，你可能已经注意到我们没有在示例中使用 `v-model`。这是因为大多数情况下，你实际上并不需要 model 值，除非你要将它们提交到 API，或者如果你提交的是不带 Javascript 的HTML表单，则根本不需要。
 
-Having to create models just to be able to reference them later is redundant and vee-validate goes around this by creating an internal model for the `<Field />` field component instances and tracks them and keeps them in sync with the input. You can still use `v-model` if you need it but vee-validate doesn't require it.
+必须创建模型以便以后可以引用它们是多余的，而 vee-validate 可以通过为 `<Field />` 组件实例创建内部模型并跟踪它们并使它们与输入保持同步来解决这个问题。如果需要，你仍然可以使用 `v-model`，但vee-validate不需要它。
 
-You may access your form's values using either the `Form` component scoped slot prop called "values":
+你可以使用 `Form` 组件的 values 作用于插槽参数访问表单的值。
 
 ```vue
 <template>
@@ -62,9 +62,9 @@ export default {
 </script>
 ```
 
-You will rarely need to access the form values inside the template, but its there if you ever need it. The more interesting approach is that vee-validate follows the assumption that most likely you will need the form values at the submission phase.
+你几乎不需要访问模板内的表单值，但是如果你确实需要也能够做到。更为有趣的方法是，vee-validate 遵循这样的假设，即您很可能在提交阶段需要表单值。
 
-So if you were to add a `submit` handler on the `<Form />` component, vee-validate will automatically pass the form values to your handler as the first argument.
+因此，如果要在 `<Form />` 组件上添加 `submit` 处理方法，则 vee-validate 会自动将表单值作为第一个参数传递给您的处理方法。
 
 ```vue
 <template>
@@ -106,7 +106,7 @@ export default {
 </script>
 ```
 
-## Handling Submissions
+## 处理提交
 
 vee-validate exposes useful defaults to help you handle form submissions whether you submit them using JavaScript or native HTML submissions, in most cases you would like to make sure all your fields are valid before you submit the form, this is done for you by default.
 
